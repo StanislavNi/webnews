@@ -100,4 +100,13 @@ ENV/
 # mypy
 .mypy_cache/
 .DS_Store
-
+.idea
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+.DS_Store
+/meetstar_site/images
+staticfiles
