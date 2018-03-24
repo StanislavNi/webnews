@@ -7,4 +7,5 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
+    url(r'article$', views.article, name='article'),
 ]
