@@ -5,7 +5,7 @@ from django.utils import timezone
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE,
                                blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to='images', blank=True, null=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
     section = models.CharField(max_length=200,null=True)

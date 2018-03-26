@@ -8,7 +8,13 @@
 html {
   background: #fff;
 }
-
+p.clip{
+    white-space: normal;
+    overflow: hidden;
+    padding: 5px;
+    height: 100px;
+    text-overflow: ellipsis;
+}
 body {
   font-family: "Roboto", arial, sans-serif;
   font-size: 18px;
@@ -578,7 +584,7 @@ figure figcaption {
 }
 #fh5co-offcanvas .fh5co-menu,
 #fh5co-offcanvas .fh5co-bio {
-  width: 50%;
+  width: 100%;
   padding: 50px;
 }
 @media screen and (max-width: 768px) {
