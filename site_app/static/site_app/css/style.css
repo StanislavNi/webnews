@@ -640,6 +640,7 @@ figure figcaption {
 
 #fh5co-footer {
   padding: 3em 0;
+  clear: both;
   text-align: center;
 }
 
@@ -647,6 +648,7 @@ figure figcaption {
 .to-animate-2, .js
 .animate-box {
   opacity: 0;
+  text-align: center;
 }
 
 .fh5co-nav-toggle {
@@ -783,3 +785,8 @@ figure figcaption {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.mainpage .article-item {
+    height: 400px;
+}

@@ -7,7 +7,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>WebNews</title>
+	<title>{% block title %}WebNews{% endblock %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -22,7 +22,7 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="/static/site_app/css/bootstrap.css">
 
-	<link rel="stylesheet" href="/static/site_app/css/style.css">
+	<link rel="stylesheet" href="/static/site_app/css/style.css?version=124">
 
 
 	<!-- Modernizr JS -->
@@ -33,23 +33,16 @@
 	<![endif]-->
 
 	</head>
-	<body>
+	<body class="{% block bodyclass %}inner{% endblock %}">
 	<div id="fh5co-offcanvas">
 		<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i><span>Close</span></span></a>
 		<div class="fh5co-menu">
 			<div class="fh5co-box">
 				<h3 class="heading">Categories</h3>
 				<ul>
-					<li><a href="#">HotNews</a></li>
-					<li><a href="#">Articles</a></li>
-					<li><a href="#">Events</a></li>
-					<li><a href="#">Technologies</a></li>
-					<li><a href="#">Politics</a></li>
-					<li><a href="#">Culture</a></li>
-					<li><a href="#">Sport</a></li>
-					<li><a href="#">Economics</a></li>
-					<li><a href="#">Incidents</a></li>
-					<li><a href="#">Travel</a></li>
+					{% for section in sections %}
+					<li><a href="/bysection?section={{ section.0 }}">{{ section.1 }}</a></li>
+					{% endfor %}
 				</ul>
 			</div>
 			<div class="fh5co-box">
@@ -85,21 +78,10 @@
 
 	</header>
 	<!-- END #fh5co-header -->
-	<div class="container-fluid">
-		<div class="row fh5co-post-entry">
-			{% for post in post %}
-			<article class="col-lg-4 col-md-4 col-sm-4 col-xs-6 col-xxs-12 animate-box">
-				<figure>
-					<a href="/article?id={{ post.id }}"><img src="/static/site_app/{{ post.image }}" class="img-responsive"></a>
-				</figure>
-				<h2 class="fh5co-article-title"><a href="/article?id={{ post.id }}">{{ post }}</a></h2>
-				<p class="clip">{{ post.text }}</p>
-				<span class="fh5co-meta fh5co-date">{{ post.created_date|date:"M d, Y" }}</span>
-			</article>
-			{% endfor %}
-			<div class="clearfix visible-xs-block"></div>
-		</div>
-	</div>
+     {% block content %}
+	 {% endblock %}
+
+	    <div class="clearfix visible-xs-block"></div>
 
 	<footer id="fh5co-footer">
 		<p><small>&copy; 2018. Stanislav Ni. All Rights Reserverd. <br> Designed by me</small></p>
