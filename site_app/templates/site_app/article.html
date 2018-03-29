@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}{{ post.title }} | WebNews{% endblock %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="row fh5co-post-entry">
+			<article class="col-lg-9 col-md-9 col-sm-9 col-xs-9 col-xxs-12 animate-box">
+				<figure>
+					<a href="/article?id={{ post.id }}"><img src="/static/site_app/{{ post.image }}" class="img-responsive"></a>
+				</figure>
+				<h2 class="fh5co-article-title"><a href="/article?id={{ post.id }}">{{ post }}</a></h2>
+				<p>{{ post.text }}</p>
+				<span class="fh5co-meta fh5co-date">{{ post.created_date|date:"M d, Y" }}</span>
+			</article>
+
+			{% for post in all_posts %}
+				{% include 'site_app/article-item.html' %}
+			{% endfor %}
+			<div class="clearfix visible-xs-block"></div>
+		</div>
+	</div>
+{% endblock %}

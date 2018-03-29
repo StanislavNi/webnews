@@ -1,0 +1,8 @@
+<article class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-12 animate-box">
+    <figure>
+        <a href="/article?id={{ post.id }}"><img src="/static/site_app/{{ post.image }}" class="img-responsive"></a>
+    </figure>
+    <h2 class="fh5co-article-title"><a href="/article?id={{ post.id }}">{{ post }}</a></h2>
+    <p class="clip">{{ post.text }}</p>
+    <span class="fh5co-meta fh5co-date">{{ post.created_date|date:"M d, Y" }}</span>
+</article>

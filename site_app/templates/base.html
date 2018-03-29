@@ -1,44 +1,105 @@
+{% load staticfiles %}
 <!DOCTYPE html>
-<html>
- <head>
-    <title>WebNews</title>
-    <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="/static/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- </head>
- <body>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% block title %}WebNews{% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
- <nav class="navbar navbar-default">
-  <div class="container">
-   <div class="navbar-header">
-    <a class="navbar-brand" href="#">WebNews</a>
-   </div>
-   <ul class="nav navbar-nav">
-    <li><a href="#">HotNews</a>
-    <li><a href="#">Articles</a></li>
-    <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sections
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Politics</a></li>
-          <li><a href="#">People</a></li>
-          <li><a href="#">Technologies</a></li>
-        </ul>
-    </li>   </ul>
-   <form class="navbar-form navbar-left" action="/action_page.php">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">Find</button>
-    </form>
-  </div>
- </nav>
 
- </body>
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,400italic|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<!-- Animate -->
+	<link rel="stylesheet" href="static/site_app/css/animate.css">
+	<!-- Icomoon -->
+	<link rel="stylesheet" href="static/site_app/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/static/site_app/css/bootstrap.css">
+
+	<link rel="stylesheet" href="/static/site_app/css/style.css?version=124">
+
+
+	<!-- Modernizr JS -->
+	<script src="/static/site_app/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="/static/site_app/js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body class="{% block bodyclass %}inner{% endblock %}">
+	<div id="fh5co-offcanvas">
+		<a href="#" class="fh5co-close-offcanvas js-fh5co-close-offcanvas"><span><i class="icon-cross3"></i><span>Close</span></span></a>
+		<div class="fh5co-menu">
+			<div class="fh5co-box">
+				<h3 class="heading">Categories</h3>
+				<ul>
+					{% for section in sections %}
+					<li><a href="/bysection?section={{ section.0 }}">{{ section.1 }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="fh5co-box">
+				<h3 class="heading">Search</h3>
+				<form action="#">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Type a keyword">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- END #fh5co-offcanvas -->
+	<header id="fh5co-header">
+		
+		<div class="container-fluid">
+
+			<div class="row">
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				<ul class="fh5co-social">
+					<li><a href="#"><img src="/static/site_app/images/facebook.svg" width="25px" height="25px"></a></li>
+					<li><a href="#"><img src="/static/site_app/images/telegram.png" width="25px" height="25px"></a></li>
+					<li><a href="#"><img src="/static/site_app/images/twitter.png" width="25px" height="25px"></a></li>
+					<li><a href="#"><img src="/static/site_app/images/instagram.png" width="25px" height="25px"></a></li>
+				</ul>
+				<div class="col-lg-12 col-md-12 text-center">
+					<h1 id="fh5co-logo"><a href="/">WebNews<sup>TM</sup></a></h1>
+				</div>
+
+			</div>
+		
+		</div>
+
+	</header>
+	<!-- END #fh5co-header -->
+     {% block content %}
+	 {% endblock %}
+
+	    <div class="clearfix visible-xs-block"></div>
+
+	<footer id="fh5co-footer">
+		<p><small>&copy; 2018. Stanislav Ni. All Rights Reserverd. <br> Designed by me</small></p>
+	</footer>
+
+
+	
+	<!-- jQuery -->
+	<script src="/static/site_app/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="/static/site_app/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="/static/site_app/js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/static/site_app/js/jquery.waypoints.min.js"></script>
+	<!-- Main JS -->
+	<script src="/static/site_app/js/main.js"></script>
+
+	</body>
 </html>
+
